@@ -1,0 +1,75 @@
+@layout('layouts.dashboard')
+
+@section('content')
+
+@!component('components.contentHeader', title='Usuários')
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            Por favor, use uma tabela abaixo para navegar ou filtrar os resultados do sistema.
+                        </h3>
+
+                        <div class="card-tools">
+                            <a href="{{ route('users.create') }}" title="Novo" type="button" class="btn btn-primary">
+                                <i class="fas fa-user-plus"></i> Novo
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="card-body table-responsive p-0">
+
+                        <table class="table table-hover text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nome</th>
+                                    <th>E-mail</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @each(user in users)
+                                    <tr>
+                                        <td>{{ user.id }}</td>
+                                        <td>{{ user.username }}</td>
+                                        <td>{{ user.email }}</td>
+                                        <td>
+                                            @if(user.status === 1 )
+                                                <span class="badge bg-success">Ativo</span>
+                                            @else
+                                                <span class="badge bg-danger">Inativo</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('users.edit', { id: user.id }) }}" title="Editar" type="button" class="btn btn-warning">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </a>
+                                            <a title="Excluir" type="button" class="btn btn-danger">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endeach
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card-footer clearfix">
+                        <ul id="pagination" class="pagination pagination-sm m-0 float-right justify-content-center">
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+@endsection

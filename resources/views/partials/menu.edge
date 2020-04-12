@@ -1,0 +1,95 @@
+@section('menu') 
+<aside class="main-sidebar elevation-4 sidebar-dark-purple">
+    <a href="#" class="brand-link text-center navbar-purple">
+      <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+             style="opacity: .8"> -->
+      <span class="brand-text font-weight-light">Crud</span>
+    </a>
+  
+    <div class="sidebar">
+  
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column nav-flat nav-legacy nav-compact" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item has-treeview menu-open">
+            <a href="/dashboard" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li>
+  
+          <li class="nav-item has-treeview">
+            <a class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Pessoas
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('users.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Usuários</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+  
+          <!-- <li class="nav-item has-treeview">
+            <a class="nav-link">
+              <i class="nav-icon fas fa-project-diagram"></i>
+              <p>
+                Projetos
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/dashboard/projeto/categorias" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Categoria</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/dashboard/projetos" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Projeto</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+  
+          <li class="nav-item has-treeview">
+            <a href="/dashboard/contatos" class="nav-link">
+              <i class="nav-icon fas fa-address-book"></i>
+              <p>
+                Contato
+              </p>
+            </a>
+          </li>
+  
+          <li class="nav-item has-treeview">
+            <a href="/dashboard/rede-sociais" class="nav-link">
+              <i class="nav-icon fas fa-icons"></i>
+              <p>
+                Social
+              </p>
+            </a>
+          </li>
+  
+          <li class="nav-item has-treeview">
+            <a href="/dashboard/sobre" class="nav-link">
+              <i class="nav-icon fas fa-info-circle"></i>
+              <p>
+                Sobre
+              </p>
+            </a>
+          </li> -->
+  
+        </ul>
+      </nav>
+    </div>
+  
+</aside>
+@endsection

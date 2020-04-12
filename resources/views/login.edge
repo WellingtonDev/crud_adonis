@@ -1,0 +1,47 @@
+@layout('layouts.login')
+
+@section('content')
+<div class="login-box">
+    <div class="login-logo">
+      <a href="/login"><b>Crud</b>Adonis</a>
+    </div>
+
+    <div class="card">
+        <div class="card-body login-card-body">
+            <div id="info"></div>
+            <form action="/login/auth" method="post" id="form-login">
+                <div class="input-group mb-3">
+                <input type="email" name="email" class="form-control" placeholder="Email">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
+                    </div>
+                </div>
+                </div>
+                <div class="input-group mb-3">
+                <input type="password" name="password" class="form-control" placeholder="Senha">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="icheck-primary">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">
+                            Remember Me
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" id="btn-login" class="btn navbar-purple btn-block"
+                        style="color:white">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endsection

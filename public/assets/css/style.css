@@ -1,0 +1,251 @@
+
+/* body{
+    background-color: black;
+    font-family: 'Robot', Arial, Helvetica, sans-serif;
+    background-image: url('./assets/img/fundo.png');
+    background-size: auto auto;
+    background-repeat: repeat;
+    background-position: center top;
+} */
+
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+/* HEADER */
+.sf-backgroud-img{
+    background-image: url('../../assets/img/fundo.png');
+    background-size: auto auto;
+    background-repeat: repeat;
+    background-position: center top;
+}
+
+.sf-navbar-shadow {
+    -webkit-box-shadow: 0px 1px 2px 0px #212529;
+    -moz-box-shadow:    0px 1px 2px 0px #212529;
+    box-shadow: 0px 1px 2px 0px #212529;
+    z-index:999;
+}
+
+.sf-font-menu{
+    font-family: 'Roboto Slab', serif;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.sf-font-menu a{
+    color:#7f6000 !important;
+}
+
+.sf-font-menu a:hover{
+    color:#af8608 !important;
+}
+
+.sf-img-header{
+    background-image: url('../../assets/img/capa/capa01.jpg');
+    background-repeat: no-repeat;
+    margin-top: 55px;
+    margin-bottom: 40px;
+    height: 400px;
+}
+
+.sf-container-black{
+    background-color: #0000009c;
+    margin-top:90px;
+    color: #FFF;
+}
+
+.sf-font-titulo{
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.sf-font-subtitulo{
+    font-size: 20px;
+    font-weight: 100;
+}
+/* FIM HEADER */
+
+
+
+
+
+
+
+/* COLORS */
+
+
+
+/* FIM COLORS */
+
+
+
+/* BOTOES */
+
+.sf-btn-full{
+    width: 100%;
+}
+
+.sf-btn-outline {
+    color: #af8608;
+    background-color: transparent;
+    background-image: none;
+    border-color: #af8608;
+    font-family: 'Roboto Slab', serif;
+}
+
+.sf-btn-outline:focus{
+    background: #af8608;
+    color: black;
+    box-shadow: none;
+    outline: 0 none;
+
+}
+
+/* FIM BOTOES*/
+
+
+.sf-title{
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 45px;
+}
+
+/* ESPACOS */
+
+.sf-spacing{
+    margin-top: 20px;
+    /* margin-bottom: 80px; */
+}
+
+.sf-spacing-sobre{
+    margin-top: 20px;
+    margin-bottom: 70px;
+}
+
+.sf-spacing-contato{
+    margin-bottom: 60px;
+}
+
+.sf-spacing-col{
+    margin-top:50px;
+    margin-bottom: 5px;
+}
+
+
+
+/* FIM ESPACOS */
+
+.sf-copyright{
+    font-size: 12px;
+    color: #ccc;
+}
+
+/* FOOTER */
+
+footer{
+    background-color: black;
+    height: 100%;
+}
+
+.sf-text-social{
+    color: #ccc;
+}
+
+.sf-text-social:hover{
+   color: #af8608;
+}
+
+/* FIM FOOTER */
+
+.sf-input-border{
+    border-radius: 0 !important;
+    font-size: 12px;
+    
+}
+
+.sf-input-text{
+    outline: 0 none;
+}
+
+.sf-input-text:focus{
+    border-color: rgb(149, 117, 22);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgb(154, 120, 20);
+    outline: 0 none;
+}
+
+.sf-input-error{
+    border-color: rgba(255, 0, 0, 0.44);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(255, 0, 0, 0.7686274509803922);
+    outline: 0 none;
+}
+
+/* CAMPO TEXTO */
+
+
+
+
+
+/* FIM CAMPO TEXTO */
+
+.sff-paragrafo{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    text-indent: 2em
+}
+
+
+.sff-icon{
+    margin-right: 10px;
+}
+
+.sf-iframe{
+    height: 300px;
+}
+
+.sf-portfolio-img{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+
+.sf-imagem-sobre{
+    margin-bottom: 40px;
+    border-radius: 50%;
+}
+
+.sf-logo-name{
+ color:white;
+}
+.sf-logo-name:hover{
+    color:#af8608
+}
+
+@media (max-width: 600px) 
+{
+  .sf-btn-outline 
+   {
+    width: 100%;
+    margin-bottom: 10px;
+   }
+   footer{
+       height: 100%;
+   }
+   .sf-spacing-col{
+        margin-top: 11px;
+        margin-bottom: 0px;
+   }
+}
+
+
+
+
