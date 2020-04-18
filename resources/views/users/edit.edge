@@ -4,9 +4,13 @@
 
 @!component('components.contentHeader', title='Adicionar Usuário')
 
+{{--  variables  --}}
+@set('v_genre',['M','F'])
+@set('v_status', ['1', '0'])
+
 <section class="content">
     <div class="container-fluid">
-        <form id="form-user" class="card card-default" method="POST" action="{{ route('users.update', { id:1 }) }}?_method=PUT">
+        <form id="form-user" class="card card-default" method="POST" action="{{ route('users.update', { id: user.id }) }}?_method=PUT">
 
             <div class="card-header">
                 <h3 class="card-title"> Por favor, preencha as informações abaixo </h3>
@@ -18,39 +22,47 @@
                         {{ csrfField() }}
                         <div class="form-group">
                             <label for="name">Nome</label>
-                            <input type="text" class="form-control {{ elIf('$self','is-invalid',hasErrorFor('username')) }}" name="username" value="{{ old('username', '') }}">
+                            <input type="text" class="form-control {{ elIf('$self','is-invalid',hasErrorFor('username')) }}" name="username" value="{{ user.username }}">
                             {{ elIf('<span class="error invalid-feedback">$self</span>', getErrorFor('username'), hasErrorFor('username')) }}
                         </div>
 
                         <div class="form-group">
                             <label for="">Nome de Usuário</label>
-                            <input type="text" class="form-control {{ elIf('$self','is-invalid',hasErrorFor('nickname')) }}"  name="nickname" value="{{ old('nickname', '') }}">
+                            <input type="text" class="form-control {{ elIf('$self','is-invalid',hasErrorFor('nickname')) }}"  name="nickname" value="{{ user.nickname }}">
                             {{ elIf('<span class="error invalid-feedback">$self</span>', getErrorFor('nickname'), hasErrorFor('nickname')) }}
                         </div>
 
                         <div class="form-group">
                             <label for="">E-mail</label>
-                            <input type="email" class="form-control {{ elIf('$self','is-invalid',hasErrorFor('email')) }}" name="email" value="{{ old('email', '') }}">
+                            <input type="email" class="form-control {{ elIf('$self','is-invalid',hasErrorFor('email')) }}" name="email" value="{{ user.email }}">
                             {{ elIf('<span class="error invalid-feedback">$self</span>', getErrorFor('email'), hasErrorFor('email')) }}
                         </div>
 
                         <div class="form-group">
                             <label for="name">Telefone</label>
-                            <input type="text" class="form-control" name="telephone" value="{{ old('telephone', '') }}">
+                            <input type="text" class="form-control" name="telephone" value="{{ user.telephone }}">
                         </div>
 
                         <div class="form-group">
                             <label>Genero</label>
-                            <select name="genre" value="{{ old('genre', '') }}" class="form-control select2" style="width: 100%;">
-                                <option>Select..</option>
-                                <option value="M">Masculino</option>
-                                <option value="F">Feminino</option>
+                            <select name="genre" class="form-control select2" style="width: 100%;">
+                                @each(genre in v_genre)
+                                    @if(genre == user.genre)
+                                        <option value="{{ user.genre }}" selected="selected">
+                                            {{ user.genre == 'M' ? 'Masculino' : 'Feminino' }}
+                                        </option>
+                                    @else 
+                                        <option value="{{ genre }}">
+                                            {{ genre == 'M' ? 'Masculino' : 'Feminino' }}
+                                        </option>
+                                    @endif
+                                @endeach
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="password">Senha</label>
-                            <input type="password" class="form-control {{ elIf('$self','is-invalid',hasErrorFor('password')) }}" name="password" value="{{ old('password', '') }}">
+                            <input type="password" class="form-control {{ elIf('$self','is-invalid',hasErrorFor('password')) }}" name="password">
                             {{ elIf('<span class="error invalid-feedback">$self</span>', getErrorFor('password'), hasErrorFor('password')) }}
                         </div>
 
@@ -61,10 +73,19 @@
 
                         <div class="form-group">
                             <label>Status</label>
-                            <select name="status" value="{{ old('status', '') }}" class="form-control select2" style="width: 100%;">
-                                <option>Select..</option>
-                                <option value="1">Ativo</option>
-                                <option value="0">Inativo</option>
+                            <select name="status" class="form-control select2" style="width: 100%;">
+                                <option value="">Select..</option>
+                                @each(status in v_status)
+                                    @if(status == user.status)
+                                        <option value="{{ user.status }}" selected="selected"> 
+                                            {{ user.status == 1 ? 'Ativo' : 'Inativo' }}
+                                        </option>
+                                    @else 
+                                        <option value="{{ status }}"> 
+                                            {{ status == 1 ? 'Ativo' : 'Inativo' }}
+                                        </option>
+                                    @endif
+                                @endeach
                             </select>
                         </div>
 

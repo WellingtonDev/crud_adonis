@@ -64,9 +64,11 @@ class UserController {
       return response.redirect('back')
     }
 
+    //remove filds csrf and password confirmation
     const userData = request.except(['_csrf', 'password_confirmation'])
     await User.create(userData)
     //success
+    session.flash({ notification: 'Usuário Salvo' })
     response.redirect('dashboard/users')
   }
 
@@ -95,7 +97,7 @@ class UserController {
   async edit({ params, request, response, view }) {
     let user = await User.findBy({ id: params.id })
     //Logger.info(user)
-    return view.render('users.edit')
+    return view.render('users.edit', { user })
   }
 
   /**
@@ -110,18 +112,34 @@ class UserController {
 
     const userValidator = new StoreUser()
 
+    //override validation rules
+    const rules = {
+      username: 'required',
+      nickname: 'required',
+      email: 'required|email',
+      password: 'confirmed'
+    }
+
     const validation = await validateAll(
-      request.all(),
-      userValidator.rules,
+      request.post(),
+      rules,
       userValidator.messages
     )
 
     if (validation.fails()) {
-      session.withErrors(validation.messages()).flashAll()
+      session
+        .withErrors(validation.messages())
+        .flashAll()
       return response.redirect('back')
     }
 
-    return 'Validation passed'
+    const user = await User.findOrFail(params.id)
+    const userData = request.except(['_csrf', '_method', 'password_confirmation'])
+    userData.password ? user.password = userData.password : delete userData.password
+    user.merge(userData)
+    const saved = await user.save()
+    session.flash({ notification: 'Usuário Atualizado!' })
+    response.redirect('/dashboard/users')
   }
 
   /**
